@@ -4,10 +4,13 @@ import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.viewpager2.widget.ViewPager2
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.messaging.FirebaseMessaging
 import org.hackathon.ody.R
 
 class MainActivity : AppCompatActivity() {
@@ -21,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         viewPager = findViewById(R.id.pager)
         viewPager.adapter = pagerAdapter
         requestNotificationPermission()
+        getCurrentNotificationToken()
     }
 
     private fun requestNotificationPermission() {
@@ -45,4 +49,19 @@ class MainActivity : AppCompatActivity() {
     ) { isGranted: Boolean ->
     }
 
+
+    private fun getCurrentNotificationToken() {
+        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+            if (!task.isSuccessful) {
+                Log.w("Current Token", "Fetching FCM registration token failed", task.exception)
+                return@OnCompleteListener
+            }
+
+            // Get new FCM registration token
+            val token = task.result
+
+            // Log and toast
+            Log.d("Current Token", token)
+        })
+    }
 }

@@ -14,6 +14,7 @@ google-services = "4.4.2"
 view-pager = "1.1.0"
 retrofit = "2.11.0"
 moshi = "1.15.1"
+firebaseMessagingKtx = "24.0.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -30,6 +31,7 @@ view-pager = { group = "androidx.viewpager2", name = "viewpager2", version.ref =
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref ="retrofit" }
 retrofit-converter-moshi = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref ="retrofit" }
 moshi = { group = "com.squareup.moshi", name = "moshi", version.ref = "moshi" }
+firebase-messaging-ktx = { group = "com.google.firebase", name = "firebase-messaging-ktx", version.ref = "firebaseMessagingKtx" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
