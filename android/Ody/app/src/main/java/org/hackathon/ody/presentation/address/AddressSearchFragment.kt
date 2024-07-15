@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.webkit.WebViewAssetLoader
 import org.hackathon.ody.R
 
-class AddressSearchFragment(private val addressReceive: (String, String) -> Unit) : Fragment() {
+class AddressSearchFragment(private val addressReceive: (AddressInformation) -> Unit) : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -22,8 +22,9 @@ class AddressSearchFragment(private val addressReceive: (String, String) -> Unit
 
         with(view.findViewById<WebView>(R.id.wv_address_search)) {
             settings.javaScriptEnabled = true
-            val addressSearchInterface = AddressSearchInterface(onReceive = { address, zipCode ->
-                addressReceive(address, zipCode)
+            val addressSearchInterface = AddressSearchInterface(onReceive = { address ->
+                val addressInformation = AddressInformation.of(address, requireContext())
+                addressReceive(addressInformation)
                 this.visibility = View.GONE
             })
             addJavascriptInterface(addressSearchInterface, JS_BRIDGE)

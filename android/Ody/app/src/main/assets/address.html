@@ -5,8 +5,8 @@
     <script type="text/javascript">
         const BRIDGE_CODE = "address_search";
 
-        function send(address, zipCode){
-            window[BRIDGE_CODE].receive(address, zipCode);
+        function send(address){
+            window[BRIDGE_CODE].receive(address);
         }
     </script>
     <style>
@@ -41,9 +41,9 @@
                 if(extraRoadAddr.length > 0) extraRoadAddr = ' (' + extraRoadAddr + ')';
 
                 // 도로명, 지번 주소의 유무에 따라 해당 조합형 주소를 추가한다.
-                if(fullRoadAddr.length > 0) fullRoadAddr += extraRoadAddr;
+                // if(fullRoadAddr.length > 0) fullRoadAddr += extraRoadAddr;
 
-                send(fullRoadAddr, data.zonecode);
+                send(fullRoadAddr);
             },
             width : '100%',
             height : '100%'

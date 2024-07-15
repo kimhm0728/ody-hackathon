@@ -4,9 +4,11 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class MainViewModel : ViewModel() {
-    private val startingPoint: MutableLiveData<String> = MutableLiveData()
+    private val startingPointLatitude: MutableLiveData<String> = MutableLiveData()
+    private val startingPointLongitude: MutableLiveData<String> = MutableLiveData()
 
-    fun receiveStartingPoint(startingPoint: String) {
-        this.startingPoint.value = startingPoint
+    fun receiveStartingPoint(startingPointLatitude: String, startingPointLongitude: String) {
+        this.startingPointLatitude.value = startingPointLatitude
+        this.startingPointLongitude.value = startingPointLongitude
     }
 }
