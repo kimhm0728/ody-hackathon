@@ -34,6 +34,9 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    dataBinding {
+        enable = true
+    }
 }
 
 dependencies {
@@ -53,6 +56,9 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    // Fragment Extension
+    implementation(libs.androidx.fragment.ktx)
 
     // WebViewAssetLoader
     implementation(libs.androidx.webkit)

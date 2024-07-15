@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.webkit.WebViewAssetLoader
 import org.hackathon.ody.R
 
-class AddressSearchFragment : Fragment() {
+class AddressSearchFragment(private val addressReceive: (String, String) -> Unit) : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -22,6 +22,11 @@ class AddressSearchFragment : Fragment() {
 
         with(view.findViewById<WebView>(R.id.wv_address_search)) {
             settings.javaScriptEnabled = true
+            val addressSearchInterface = AddressSearchInterface(onReceive = { address, zipCode ->
+                addressReceive(address, zipCode)
+                this.visibility = View.GONE
+            })
+            addJavascriptInterface(addressSearchInterface, JS_BRIDGE)
 
             val assetLoader = WebViewAssetLoader.Builder()
                 .addPathHandler(
@@ -37,7 +42,8 @@ class AddressSearchFragment : Fragment() {
     }
 
     companion object {
-        private const val DOMAIN = "address.finder.net"
+        private const val DOMAIN = "org.hackathon.ody"
         private const val PATH = "assets"
+        private const val JS_BRIDGE = "address_search"
     }
 }
