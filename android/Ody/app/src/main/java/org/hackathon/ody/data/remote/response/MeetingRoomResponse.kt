@@ -14,7 +14,7 @@ data class MeetingRoomResponse(
     @Json(name = "targetLongitude") val longitude: String,
     @Json(name = "mateCount") val mateCount: Long,
     @Json(name = "mates") val mates: Mates,
-    @Json(name = "invitedCode") val invitedCode: String,
+    @Json(name = "inviteCode") val inviteCode: String,
 ) {
     data class Mates(
         @Json(name = "mate") val mate: List<Mate>
