@@ -45,6 +45,8 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.analytics)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter.moshi)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
