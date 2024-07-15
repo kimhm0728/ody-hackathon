@@ -12,6 +12,7 @@ constraintlayout = "2.1.4"
 firebase-bom = "33.1.2"
 google-services = "4.4.2"
 view-pager = "1.1.0"
+retrofit = "2.11.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -25,6 +26,8 @@ androidx-constraintlayout = { group = "androidx.constraintlayout", name = "const
 firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics" }
 firebase-bom = { group = "com.google.firebase", name = "firebase-bom" , version.ref = "firebase-bom"}
 view-pager = { group = "androidx.viewpager2", name = "viewpager2", version.ref = "view-pager" }
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref ="retrofit" }
+retrofit-converter-moshi = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref ="retrofit" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
