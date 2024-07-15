@@ -48,6 +48,7 @@ dependencies {
     implementation(libs.view.pager)
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter.moshi)
+    implementation(libs.moshi)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
