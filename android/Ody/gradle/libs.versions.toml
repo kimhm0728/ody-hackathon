@@ -29,7 +29,7 @@ firebase-bom = { group = "com.google.firebase", name = "firebase-bom" , version.
 view-pager = { group = "androidx.viewpager2", name = "viewpager2", version.ref = "view-pager" }
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref ="retrofit" }
 retrofit-converter-moshi = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref ="retrofit" }
-moshi = { group = "com.square.moshi", name = "moshi", version.ref = "moshi" }
+moshi = { group = "com.squareup.moshi", name = "moshi", version.ref = "moshi" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
