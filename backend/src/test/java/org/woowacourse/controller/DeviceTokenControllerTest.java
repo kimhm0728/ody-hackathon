@@ -12,7 +12,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
-class TokenControllerTest {
+class DeviceTokenControllerTest {
 
     @LocalServerPort
     private int port;

@@ -12,10 +12,10 @@ public class MemberService {
     private MemberRepository memberRepository;
 
     public Member save() {
-        Member member = new Member();
+        Member member = Member.builder().build();
         return memberRepository.save(member);
     }
-  
+
     public Member findByToken(String token) {
         return memberRepository.findByToken(token);
     }
