@@ -9,8 +9,13 @@ import org.woowacourse.repository.MemberRepository;
 @RequiredArgsConstructor
 public class MemberService {
 
-    private final MemberRepository memberRepository;
+    private MemberRepository memberRepository;
 
+    public Member save() {
+        Member member = new Member();
+        return memberRepository.save(member);
+    }
+  
     public Member findByToken(String token) {
         return memberRepository.findByToken(token);
     }

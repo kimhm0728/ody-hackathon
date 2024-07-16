@@ -11,4 +11,3 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
     @Query("select m from Member m join fetch DeviceToken d on m.id = d.member.id where d.token = :token")
     Member findByToken(String token);
 }
-

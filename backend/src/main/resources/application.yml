@@ -9,6 +9,10 @@ spring:
     password:
     driver-class-name: org.h2.Driver
   jpa:
+    show-sql: true
     hibernate:
       ddl-auto: create-drop
-    defer-datasource-initialization: false
+    properties:
+      hibernate:
+        format_sql: true
+    defer-datasource-initialization: true
