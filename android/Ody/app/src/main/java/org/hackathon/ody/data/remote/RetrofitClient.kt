@@ -21,7 +21,8 @@ import kotlin.coroutines.suspendCoroutine
 object RetrofitClient {
 
     private var retrofit: Retrofit? = null
-    private const val BASE_URL = "http://localhost:80"
+    private const val BASE_URL = "http://3.34.117.20:8080"
+
     /*
     val token = CoroutineScope(Dispatchers.IO).async {
         getCurrentNotificationToken()
