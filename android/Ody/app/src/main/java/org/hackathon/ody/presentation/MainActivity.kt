@@ -14,6 +14,8 @@ import com.google.firebase.messaging.FirebaseMessaging
 import kotlinx.coroutines.runBlocking
 import org.hackathon.ody.R
 import org.hackathon.ody.data.remote.RetrofitClient
+import org.hackathon.ody.data.remote.service.DeviceTokenService
+import org.hackathon.ody.data.remote.service.MeetingService
 
 class MainActivity : AppCompatActivity() {
     private lateinit var viewPager: ViewPager2
@@ -26,7 +28,12 @@ class MainActivity : AppCompatActivity() {
         viewPager = findViewById(R.id.pager)
         viewPager.adapter = pagerAdapter
         requestNotificationPermission()
-        RetrofitClient.getRetrofit()
+
+        val retrofit =RetrofitClient.getRetrofit()
+        val tokenService = retrofit.create(DeviceTokenService::class.java)
+        runBlocking {
+            tokenService.postDeviceToken()
+        }
     }
 
     private fun requestNotificationPermission() {
