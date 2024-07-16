@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import org.hackathon.ody.R
 import org.hackathon.ody.databinding.FragmentMeetingNameBinding
-import org.hackathon.ody.databinding.FragmentMeetingNicknameBinding
 
 class MeetingNameFragment : Fragment() {
     private val viewModel: MainViewModel by activityViewModels()
