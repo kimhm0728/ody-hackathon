@@ -1,3 +1,6 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.googleServices)
@@ -8,6 +11,11 @@ android {
     namespace = "org.hackathon.ody"
     compileSdk = 34
 
+    val properties =
+        Properties().apply {
+            load(FileInputStream(rootProject.file("local.properties")))
+        }
+
     defaultConfig {
         applicationId = "org.hackathon.ody"
         minSdk = 26
@@ -16,8 +24,12 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
 
+        buildConfigField("String", "KAKAO_API_KEY", properties["kakaoApiKey"] as String);
+    }
+    buildFeatures {
+        buildConfig = true
+    }
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -59,6 +71,9 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    implementation("com.squareup.moshi:moshi-kotlin:1.15.1")
+    implementation("com.squareup.retrofit2:converter-scalars:2.9.0")
+    implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
     // Fragment Extension
     implementation(libs.androidx.fragment.ktx)
 

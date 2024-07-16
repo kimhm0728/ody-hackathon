@@ -8,8 +8,10 @@ import android.webkit.WebView
 import androidx.fragment.app.Fragment
 import androidx.webkit.WebViewAssetLoader
 import org.hackathon.ody.R
+import org.hackathon.ody.data.remote.location.KakaoLocationRepository
+import org.hackathon.ody.domain.GeoCoordinate
 
-class AddressSearchFragment(private val addressReceive: (AddressInformation) -> Unit) : Fragment() {
+class AddressSearchFragment(private val addressReceive: (GeoCoordinate) -> Unit) : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -23,8 +25,8 @@ class AddressSearchFragment(private val addressReceive: (AddressInformation) -> 
         with(view.findViewById<WebView>(R.id.wv_address_search)) {
             settings.javaScriptEnabled = true
             val addressSearchInterface = AddressSearchInterface(onReceive = { address ->
-                val addressInformation = AddressInformation.of(address, requireContext())
-                addressReceive(addressInformation)
+                val geoCoordinate = KakaoLocationRepository.getGeoCoordinate(address)
+                addressReceive(geoCoordinate)
                 this.visibility = View.GONE
             })
             addJavascriptInterface(addressSearchInterface, JS_BRIDGE)

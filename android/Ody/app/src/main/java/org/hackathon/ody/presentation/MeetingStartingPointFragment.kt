@@ -33,9 +33,9 @@ class MeetingStartingPointFragment : Fragment() {
 
     private fun showAddressSearchView() {
         parentFragmentManager.fragmentFactory =
-            AddressSearchFragmentFactory(addressReceive = { addressInformation ->
-                viewModel.receiveStartingPoint(addressInformation.latitude, addressInformation.longitude)
-                binding.etMeetingDate.setText(addressInformation.address)
+            AddressSearchFragmentFactory(addressReceive = { geoCoordinate ->
+                viewModel.receiveStartingPoint(geoCoordinate)
+                binding.etMeetingDate.setText(geoCoordinate.address)
             })
         val fragment = parentFragmentManager.fragmentFactory.instantiate(
             requireActivity().classLoader,
