@@ -1,14 +1,16 @@
 package org.hackathon.ody.data.remote.response
 
 import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import java.time.LocalDate
 import java.time.LocalTime
 
+@JsonClass(generateAdapter = true)
 data class MeetingRoomResponse(
     @Json(name = "id") val id: Long,
     @Json(name = "name") val name: String,
-    @Json(name = "date") val date: LocalDate,
-    @Json(name = "time") val time: LocalTime,
+    @Json(name = "date") val date: String,
+    @Json(name = "time") val time: String,
     @Json(name = "targetAddress") val address: String,
     @Json(name = "targetLatitude") val latitude: String,
     @Json(name = "targetLongitude") val longitude: String,

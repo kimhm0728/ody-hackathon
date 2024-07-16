@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="vm"
+            type="org.hackathon.ody.presentation.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -43,6 +46,7 @@
             android:id="@+id/btn_confirm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="@{() -> vm.register()}"
             android:text="확인"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/fragment_address_search" />

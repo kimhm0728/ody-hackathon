@@ -8,12 +8,12 @@ import retrofit2.http.POST
 
 interface MeetingService {
 
-    @POST("${MEETING_RELATIVE_URL}/")
+    @POST(MEETING_RELATIVE_URL)
     suspend fun postMeetingRoom(
         @Body body: MeetingInfoRequest
     ): Response<MeetingRoomResponse>
 
     companion object {
-        private const val MEETING_RELATIVE_URL = ""
+        private const val MEETING_RELATIVE_URL = "/meetings"
     }
 }
