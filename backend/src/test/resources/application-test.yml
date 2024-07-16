@@ -20,7 +20,7 @@ spring:
     defer-datasource-initialization: true
 
 fcm:
-  enabled: true
+  enabled: false
 
 odsay:
   url: https://api.odsay.com/v1/api/searchPubTransPathT

@@ -9,7 +9,7 @@ import org.woowacourse.repository.MemberRepository;
 @RequiredArgsConstructor
 public class MemberService {
 
-    private MemberRepository memberRepository;
+    private final MemberRepository memberRepository;
 
     public Member save() {
         Member member = Member.builder().build();

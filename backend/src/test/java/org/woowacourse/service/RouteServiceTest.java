@@ -10,7 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.woowacourse.domain.Coordinates;
 import org.woowacourse.domain.Duration;
 
-@SpringBootTest(webEnvironment = WebEnvironment.NONE)
+@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 class RouteServiceTest {
 
     @Autowired
