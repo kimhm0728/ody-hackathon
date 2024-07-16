@@ -37,3 +37,4 @@ out/
 .vscode/
 **/src/main/resources/ody-hackathon-firebase-adminsdk-6uscb-594231ea72.json
 **/src/main/resources/private.yml
+**/src/test/resources/private.yml
