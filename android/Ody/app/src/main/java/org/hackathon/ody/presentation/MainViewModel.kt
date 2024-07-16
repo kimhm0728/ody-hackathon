@@ -1,7 +1,9 @@
 package org.hackathon.ody.presentation
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import org.hackathon.ody.domain.GeoCoordinate
 
 class MainViewModel : ViewModel() {
     val meetingName = MutableLiveData<String>()
@@ -9,19 +11,16 @@ class MainViewModel : ViewModel() {
     val meetingTime = MutableLiveData<String>()
     val nickname = MutableLiveData<String>()
 
-    private val startingPointLatitude: MutableLiveData<String> = MutableLiveData()
-    private val startingPointLongitude: MutableLiveData<String> = MutableLiveData()
+    private val startingPointGeoCoordinate: MutableLiveData<GeoCoordinate> = MutableLiveData()
+    private val destinationGeoCoordinate: MutableLiveData<GeoCoordinate> = MutableLiveData()
 
-    private val destinationLatitude: MutableLiveData<String> = MutableLiveData()
-    private val destinationLongitude: MutableLiveData<String> = MutableLiveData()
-
-    fun receiveStartingPoint(startingPointLatitude: String, startingPointLongitude: String) {
-        this.startingPointLatitude.value = startingPointLatitude
-        this.startingPointLongitude.value = startingPointLongitude
+    fun receiveStartingPoint(geoCoordinate: GeoCoordinate) {
+        startingPointGeoCoordinate.value = geoCoordinate
+        Log.d("MainViewModel", "시작 위치 x: ${geoCoordinate.latitude}, y: ${geoCoordinate.longitude}")
     }
 
-    fun receiveDestination(destinationLatitude: String, destinationLongitude: String) {
-        this.destinationLatitude.value = destinationLatitude
-        this.destinationLongitude.value = destinationLongitude
+    fun receiveDestination(geoCoordinate: GeoCoordinate) {
+        destinationGeoCoordinate.value = geoCoordinate
+        Log.d("MainViewModel", "도착 위치 x: ${geoCoordinate.latitude}, y: ${geoCoordinate.longitude}")
     }
 }
