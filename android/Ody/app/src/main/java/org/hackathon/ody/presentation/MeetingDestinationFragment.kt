@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.commit
 import org.hackathon.ody.R
@@ -23,12 +24,16 @@ class MeetingDestinationFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentMeetingDestinationBinding.inflate(layoutInflater, container, false)
+        binding.vm = viewModel
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         showAddressSearchView()
+        viewModel.event.observe(requireActivity()) {
+            Toast.makeText(requireContext(), "모임이 개설되었어요!", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun showAddressSearchView() {
