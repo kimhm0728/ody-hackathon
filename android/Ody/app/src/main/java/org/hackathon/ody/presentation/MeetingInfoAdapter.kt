@@ -14,8 +14,8 @@ class MeetingInfoAdapter(fragmentActivity: FragmentActivity, private val numberO
             0 -> MeetingNameFragment()
             1 -> MeetingDateFragment()
             2 -> MeetingTimeFragment()
-            3 -> MeetingNicknameFragment()
-            4 -> MeetingStartingPointFragment()
+            3 -> MeetingStartingPointFragment()
+            4 -> MeetingNicknameFragment()
             else -> MeetingDestinationFragment()
         }
     }
