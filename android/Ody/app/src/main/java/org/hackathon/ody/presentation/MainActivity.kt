@@ -11,7 +11,11 @@ import androidx.core.content.ContextCompat
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.messaging.FirebaseMessaging
+import kotlinx.coroutines.runBlocking
 import org.hackathon.ody.R
+import org.hackathon.ody.data.remote.RetrofitClient
+import org.hackathon.ody.data.remote.service.DeviceTokenService
+import org.hackathon.ody.data.remote.service.MeetingService
 
 class MainActivity : AppCompatActivity() {
     private lateinit var viewPager: ViewPager2
@@ -24,7 +28,12 @@ class MainActivity : AppCompatActivity() {
         viewPager = findViewById(R.id.pager)
         viewPager.adapter = pagerAdapter
         requestNotificationPermission()
-        getCurrentNotificationToken()
+
+        val retrofit =RetrofitClient.getRetrofit()
+        val tokenService = retrofit.create(DeviceTokenService::class.java)
+        runBlocking {
+            tokenService.postDeviceToken()
+        }
     }
 
     private fun requestNotificationPermission() {
@@ -47,21 +56,5 @@ class MainActivity : AppCompatActivity() {
     private val requestPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
     ) { isGranted: Boolean ->
-    }
-
-
-    private fun getCurrentNotificationToken() {
-        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
-            if (!task.isSuccessful) {
-                Log.w("Current Token", "Fetching FCM registration token failed", task.exception)
-                return@OnCompleteListener
-            }
-
-            // Get new FCM registration token
-            val token = task.result
-
-            // Log and toast
-            Log.d("Current Token", token)
-        })
     }
 }
