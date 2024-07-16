@@ -58,4 +58,10 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    // Fragment Extension
+    implementation(libs.androidx.fragment.ktx)
+
+    // WebViewAssetLoader
+    implementation(libs.androidx.webkit)
 }
