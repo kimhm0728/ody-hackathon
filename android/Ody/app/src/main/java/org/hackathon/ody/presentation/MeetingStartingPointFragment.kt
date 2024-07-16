@@ -1,10 +1,10 @@
 package org.hackathon.ody.presentation
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import org.hackathon.ody.R
 
 class MeetingStartingPointFragment : Fragment() {
